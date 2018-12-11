@@ -1,41 +1,61 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-static int first_letter(int character, int prev_char)
+static int letter(int charac, int previous)
 {
-   return isalpha(character) && ((prev_char == ' ') || (prev_char == '-')) ? 1 : 0;
+  if (isalpha(charac) && ((previous == ' ') || (previous == '-'))){
+             return 1;
+  }
+else
+{
+  return 0;
+}
+  
 }
 
-static int count_words(const char phrase[])
+
+static int words(const char input[])
 {
-   int count = 0;
 
-   if (phrase != NULL)
+   int temp = 0;
+if (input == NULL){
+      return temp;
+ } 
+ else{
+  temp=1;
+}
+ 
+
+  for (size_t i = 1; input[i] != '\0'; ++i)
 {
-      count = 1;              
- }  else
-  {    return count;
-}
-   for (size_t i = 1; phrase[i] != '\0'; ++i)
-      if (first_letter(phrase[i], phrase[i - 1]))
-         ++count;             
-   return count;
+      if (letter(input[i], input[i - 1])){
+         ++temp;             
+      }
+}  
+ return temp;
 }
 
-char *abbreviate(const char phrase[])
+char *abbreviate(const char string[])
 {
-   char *acronym = NULL;
+   char *temp = NULL;
 
-   if (phrase == NULL || phrase[0] == '\0')
-      return NULL;            
-   acronym = calloc(count_words(phrase) + 1, sizeof phrase[0]);
-   if (!acronym)
-      return NULL;            
-   acronym[0] = toupper(phrase[0]);    
 
-   for (size_t i = 1, j = 1; phrase[i] != '\0'; ++i) {
-      if (first_letter(phrase[i], phrase[i - 1]))
-         {acronym[j++] = toupper(phrase[i]);}    
-   }
-   return acronym;
+if (string == NULL || string[0] == '\0'){
+          return NULL;
+} 
+
+   temp = calloc(words(string) + 1, sizeof string[0]);
+   if (!temp){
+      return NULL;
+}            
+   temp[0] = toupper(string[0]);    
+
+   for (size_t i = 1, j = 1; string[i] != '\0'; ++i) {
+      if (letter(string[i], string[i - 1])){
+               temp[j++] = toupper(string[i]);
+      }    
 }
+  
+ return temp;
+}
+
