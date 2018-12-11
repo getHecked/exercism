@@ -24,7 +24,7 @@ void test_handles_arbitrary_verse(void)
 
 void test_handles_2_bottles(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+               // delete this line to run test
    char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
        "2 bottles of beer on the wall, 2 bottles of beer.\n"
@@ -36,7 +36,7 @@ void test_handles_2_bottles(void)
 
 void test_handles_1_bottle(void)
 {
-   TEST_IGNORE();
+
    char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
        "1 bottle of beer on the wall, 1 bottle of beer.\n"
@@ -48,7 +48,7 @@ void test_handles_1_bottle(void)
 
 void test_handles_0_bottles(void)
 {
-   TEST_IGNORE();
+
    char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
        "No more bottles of beer on the wall, no more bottles of beer.\n"
@@ -60,8 +60,7 @@ void test_handles_0_bottles(void)
 
 void test_sings_several_verses(void)
 {
-   TEST_IGNORE();
-   char response[BUFFER_SIZE];
+char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
        "8 bottles of beer on the wall, 8 bottles of beer.\n"
        "Take one down and pass it around, 7 bottles of beer on the wall.\n"
@@ -78,7 +77,7 @@ void test_sings_several_verses(void)
 
 void test_sings_the_last_4_verses(void)
 {
-   TEST_IGNORE();
+ 
    char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
        "3 bottles of beer on the wall, 3 bottles of beer.\n"
