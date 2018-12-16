@@ -3,8 +3,7 @@
 #include <ctype.h>
 #include "word_count.h"
 
-static int word_match(char *testWord, int current_word_count,
-                      word_count_word_t words[MAX_WORDS])
+static int word_match(char *testWord, int current_word_count, word_count_word_t words[MAX_WORDS])
 {
    int match_index = -1;
 
@@ -36,7 +35,8 @@ int word_count(const char *input_text, word_count_word_t * words)
    test_word = strtok(lower_case_input_text, delimiters);
    while (test_word != NULL) {
 
-      if (('\'' == test_word[0]) && ('\'' == test_word[strlen(test_word) - 1])) {
+      if (('\'' == test_word[0]) && ('\'' == test_word[strlen(test_word) - 1])) 
+{
          test_word[strlen(test_word) - 1] = '\0';
          test_word++;
       }
